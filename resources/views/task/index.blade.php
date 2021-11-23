@@ -2,16 +2,14 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <h2>タスク作成ページ</h2>
+        <title>タスク一覧</title>
     </head>
     <body>
-        <p>タスク追加</p>
-        <table>
-            <tr><th>title: </th><td><input type="text" name="title"></td></tr>
-            <tr><th>task: </th><td><input type="text" name="description" style="height: 100px"></td></tr>
-            <tr><th>deadline: </th><td><input type="datetime-local" name="deadline"></td></tr>
-            <tr><th></th><td><input type="submit" value="send"></td></tr>
-        </table>
+        <form>
+        @csrf
+
+        
+        </form>
     </body>
 </html>
 

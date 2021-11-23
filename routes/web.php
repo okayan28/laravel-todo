@@ -19,6 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('task', [TaskController::class, 'index']);
-Route::post('task', [TaskController::class, 'index']);
 Route::get('task/add',[TaskController::class, 'add']);
-Route::get('task/add', [TaskController::class, 'create']);
+Route::post('task/add', [TaskController::class, 'create']);
