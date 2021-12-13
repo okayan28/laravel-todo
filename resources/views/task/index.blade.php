@@ -7,7 +7,16 @@
     <body>
         <form>
         @csrf
-
+            <table>
+                <thead><tr><th>Title</th><th>Task</th><th>Deadline</th></tr></thead>
+                <tbody>
+                @foreach ($items as $item)
+                    <tr><td>{{$item->title}}</td>
+                    <td>{{$item->description}}</td>
+                    <td>{{$item->deadline}}</td></tr>
+                @endforeach
+                </tbody>
+            </table>
         
         </form>
     </body>

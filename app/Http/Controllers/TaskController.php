@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\task;
+use Illuminate\Support\Facades\DB;
 
 class TaskController extends Controller
 {
     public function index(Request $request)
     {
-    return view('task.index');
+        $items = DB::select('select * from tasks');
+        return view('task.index', ['items' => $items]);
     }
 
     public function add(Request $request)
@@ -26,6 +28,7 @@ class TaskController extends Controller
         $task->fill($form)->save();
         return redirect('/task');
     }
+
 }
 
 
