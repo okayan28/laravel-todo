@@ -29,6 +29,12 @@ class TaskController extends Controller
         return redirect('/task');
     }
 
+    public function edit(Request $request){
+        $param = ['id' => $request->id];
+        $item = DB::select('select * from tasks where id = :id', $param);
+        return view('task.edit', ['form' => $item[0]]);
+    }
+
 }
 
 
