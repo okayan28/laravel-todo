@@ -11,7 +11,7 @@
                 <thead><tr><th>Title</th><th>Task</th><th>Deadline</th></tr></thead>
                 <tbody>
                 @foreach ($items as $item)
-                    <tr><td>{{$item->title}}</td>
+                    <tr><td><a href="/task/edit?id={{$item->id}}">{{$item->title}}</a></td>
                     <td>{{$item->description}}</td>
                     <td>{{$item->deadline}}</td></tr>
                 @endforeach

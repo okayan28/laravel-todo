@@ -35,6 +35,15 @@ class TaskController extends Controller
         return view('task.edit', ['form' => $item[0]]);
     }
 
+    public function update(Request $request){
+        $this->validate($request, task::$rules);
+        $task = Task::find($request->id);
+        $form = $request->all();
+        unset($form['_token']);
+        $task->fill($form)->save();
+        return redirect('/task');
+    }
+
 }
 
 
