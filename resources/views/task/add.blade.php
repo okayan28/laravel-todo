@@ -11,7 +11,13 @@
         <table>
             <tr><th>title: </th><td><input type="text" name="title"></td></tr>
             <tr><th>task: </th><td><input type="text" name="description" style="height: 100px"></td></tr>
+            @error('deadline')
+                <tr><th>!!ERROR!!</th><td>{{$message}}</td></tr>
+            @enderror
             <tr><th>deadline: </th><td><input type="datetime-local" name="deadline"></td></tr>
+            @if (count($errors) > 0)
+            <p style="color: red">日付を確認して下さい!</p>
+            @endif
             <tr><th></th><td><input type="submit" value="send"></td></tr>
         </table>
         </form>

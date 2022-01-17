@@ -19,7 +19,7 @@
             @if (count($errors) > 0)
             <p style="color: red">日付を確認して下さい!</p>
             @endif
-            <tr><th></th><td><input type="submit" value="send"></td></tr>
+            <tr><th></th><td><input type="submit" value="send"></td><td><a href="/task/del?id={{$form->id}}">delete</a></td></tr>
         </table>
         </form>
     </body>

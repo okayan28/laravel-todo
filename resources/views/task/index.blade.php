@@ -8,6 +8,7 @@
         <form>
         @csrf
             <table>
+                <a href="/task/add">タスクを追加する</a>
                 <thead><tr><th>Title</th><th>Task</th><th>Deadline</th></tr></thead>
                 <tbody>
                 @foreach ($items as $item)
