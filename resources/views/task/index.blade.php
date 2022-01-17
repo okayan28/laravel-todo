@@ -5,10 +5,12 @@
         <title>タスク一覧</title>
     </head>
     <body>
-        <form>
+        <form action="/task" method="post">
         @csrf
+        <a href="/task/add">タスクを追加する</a>
+        タスクを検索する<input type="text" name="input" value="{{$input}}">
+        <input type="submit" value="find">
             <table>
-                <a href="/task/add">タスクを追加する</a>
                 <thead><tr><th>Title</th><th>Task</th><th>Deadline</th></tr></thead>
                 <tbody>
                 @foreach ($items as $item)

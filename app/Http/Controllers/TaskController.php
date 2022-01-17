@@ -11,7 +11,7 @@ class TaskController extends Controller
     public function index(Request $request)
     {
         $items = DB::select('select * from tasks');
-        return view('task.index', ['items' => $items]);
+        return view('task.index', ['items' => $items, 'input' => '']);
     }
 
     public function add(Request $request)
@@ -54,6 +54,12 @@ class TaskController extends Controller
         $param = ['id' => $request->id];
         DB::delete('delete from tasks where id = :id', $param);
         return redirect('/task');
+    }
+
+    public function search(Request $request){
+        $item = Task::find($request->input);
+        $param = ['input' => $request->input, 'items' => [$item]];
+        return view('task.index', $param);
     }
 
 }
