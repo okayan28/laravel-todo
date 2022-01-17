@@ -44,6 +44,18 @@ class TaskController extends Controller
         return redirect('/task');
     }
 
+    public function del(Request $request){
+        $param = ['id' => $request->id];
+        $item = DB::select('select * from tasks where id = :id', $param);
+        return view('task.del', ['form' => $item[0]]);
+    }
+
+    public function remove(Request $request){
+        $param = ['id' => $request->id];
+        DB::delete('delete from tasks where id = :id', $param);
+        return redirect('/task');
+    }
+
 }
 
 
