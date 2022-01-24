@@ -57,8 +57,8 @@ class TaskController extends Controller
     }
 
     public function search(Request $request){
-        $item = Task::find($request->input);
-        $param = ['input' => $request->input, 'items' => [$item]];
+        $items = Task::where('title', $request->input)->get();
+        $param = ['input' => $request->input, 'items' => $items];
         return view('task.index', $param);
     }
 
