@@ -16,7 +16,8 @@ class TaskController extends Controller
 
     public function add(Request $request)
     {
-        return view('task.add');
+        $items = DB::select('select * from assignees');
+        return view('task.add', ['items' => $items]);
     }
 
     public function create(Request $request)
