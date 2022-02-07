@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Assignee;
 use Illuminate\Http\Request;
 use App\Models\task;
 use Illuminate\Support\Facades\DB;
@@ -10,13 +11,13 @@ class TaskController extends Controller
 {
     public function index(Request $request)
     {
-        $items = DB::select('select * from tasks');
+        $items = Task::all();
         return view('task.index', ['items' => $items, 'input' => '']);
     }
 
     public function add(Request $request)
     {
-        $items = DB::select('select * from assignees');
+        $items = Assignee::all();
         return view('task.add', ['items' => $items]);
     }
 

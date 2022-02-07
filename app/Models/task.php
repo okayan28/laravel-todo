@@ -21,4 +21,9 @@ class task extends Model
     {
         return $this->id . ':' . $this->title . '/' . $this->description . '(' . $this->deadline . ')';
     }
+
+    public function assignee()
+    {
+        return $this->belongsTo('App\Models\Assignee');
+    }
 }

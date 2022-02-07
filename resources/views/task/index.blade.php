@@ -11,12 +11,15 @@
         タスクを検索する<input type="text" name="input" value="{{$input}}">
         <input type="submit" value="find">
             <table>
-                <thead><tr><th>Title</th><th>Task</th><th>Deadline</th></tr></thead>
+                <thead><tr><th>Title</th><th>Task</th><th>Deadline</th><th>Assignee</th></tr></thead>
                 <tbody>
                 @foreach ($items as $item)
-                    <tr><td><a href="/task/edit?id={{$item->id}}">{{$item->title}}</a></td>
-                    <td>{{$item->description}}</td>
-                    <td>{{$item->deadline}}</td></tr>
+                    <tr>
+                        <td><a href="/task/edit?id={{$item->id}}">{{$item->title}}</a></td>
+                        <td>{{$item->description}}</td>
+                        <td>{{$item->deadline}}</td>
+                        <td>{{$item->assignee}}</td>
+                    </tr>
                 @endforeach
                 </tbody>
             </table>
