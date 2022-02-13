@@ -19,6 +19,12 @@
             @if (count($errors) > 0)
             <p style="color: red">日付を確認して下さい!</p>
             @endif
+            <tr><th>assignee: </th><td><select name="assignee_id" id="assignee_select" value="{{$form->assignee}}">
+                <option value="">--Choose an option--</option>
+                @foreach ($items as $item)
+                   <option value="{{$item->id}}">{{$item->name}}</option>
+                @endforeach
+                </select></td></tr>
             <tr><th></th><td><input type="submit" value="send"></td><td><a href="/task/del?id={{$form->id}}">delete</a></td></tr>
         </table>
         </form>

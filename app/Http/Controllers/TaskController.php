@@ -35,9 +35,9 @@ class TaskController extends Controller
     }
 
     public function edit(Request $request){
-        $param = ['id' => $request->id];
-        $item = DB::select('select * from tasks where id = :id', $param);
-        return view('task.edit', ['form' => $item[0]]);
+        $item = Task::find($request->id);
+        $items = Assignee::all();
+        return view('task.edit', ['form' => $item, 'items' => $items]);
     }
 
     public function update(Request $request){
