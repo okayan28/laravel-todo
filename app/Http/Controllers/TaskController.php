@@ -11,7 +11,10 @@ class TaskController extends Controller
 {
     public function index(Request $request)
     {
-        $items = Task::all();
+        $items = Task::with('assignee')->get();
+        // foreach ($items as $item) {
+        //     echo $item->assignee->name;
+        // }
         return view('task.index', ['items' => $items, 'input' => '']);
     }
 
