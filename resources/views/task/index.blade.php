@@ -18,7 +18,11 @@
                         <td><a href="/task/edit?id={{$item->id}}">{{$item->title}}</a></td>
                         <td>{{$item->description}}</td>
                         <td>{{$item->deadline}}</td>
-                        <td>{{$item->assignee}}</td>
+                        <td>
+                            @if ($item->assignee)
+                                {{$item->assignee->name}}
+                            @endif
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
